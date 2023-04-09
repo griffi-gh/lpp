@@ -35,10 +35,15 @@ local function process(data)
     elseif code:sub(1, 1) == "-" then
       code = ""
     end
+    local emit = ""
+    macro_env._ = function(text)
+      emit = emit..text
+    end
     local fn = setfenv(assert(loadstring(code)), macro_env)
     local result = fn()
+    macro_env._ = nil
     if result == nil then
-      return "" 
+      return emit
     else
       return tostring(result)
     end
