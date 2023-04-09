@@ -6,6 +6,7 @@ tiny (80 SLOC) lua preprocessor thing created for personal use
 luajit lpp.lua /path/to/file.lpp.lua > output.txt
 ```  
 both lua 5.1 and luajit are supported
+.lpp.lua is currently the suggested file extension for lpp files
 
 ## syntax  
 
