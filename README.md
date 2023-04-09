@@ -80,7 +80,7 @@ I have "|>! -math.huge <|" friends :(.
 
 Some math operations: (age * 36) / 2 = |>! (age * 36) / 2  <|
 
-
+|>- I'm a comment! |<
 
 
 Today's lucky number is... |>! math.random(100) <|
@@ -96,6 +96,4 @@ Today's lucky number is... 60
 
 # security  
 none.  
-##### (maybe in the future)
-###### *(pls don't run untrusted code)*
 
