@@ -9,6 +9,10 @@ local function read_file(path)
   return d
 end
 
+--Setup rng
+math.randomseed(os.time())
+for i = 1,3 do math.random() end
+
 --Get/normalize file path and working directory
 local file_path = arg[1]:gsub("\\","/"):gsub("/?%s*$", ""):gsub("^%s*", "")
 local working_dir = file_path:match("(.*/)")
@@ -49,7 +53,9 @@ macro_env.include = function(path)
   return process(macro_env.file(path))
 end
 macro_env.postprocess = setmetatable({
-  remove_whitespace = function(x) return x:gsub('%s', '') end
+  remove_whitespace = function(x) return x:gsub('%s', '') end,
+  convert_crlf = function(x) return x:gsub('\r\n', '\n') end,
+  remove_empty_lines = function(x) return x:gsub('[\r\n][\r\n]*', '\n'):gsub('^[\r\n]*', ''):gsub('[\r\n]*$', '') end,
 }, {
   __call = function(self, step)
     if type(step) == "string" then
