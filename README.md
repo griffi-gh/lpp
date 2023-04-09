@@ -11,8 +11,7 @@ both lua 5.1 and luajit are supported
 
 wrap your lua code between `|> ... <|`  
 returned value gets added to the output  
-`nil` is equal to an empty string  
-these blocks are usually used to define globals and functions
+use these to define your globals and functions
 
 #### inline blocks:  
 `|>! ... <|` evaluate a single expression  
