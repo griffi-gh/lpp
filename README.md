@@ -66,6 +66,25 @@ end
   - `convert_crlf`: converts \r\n line endings to \n
   - `remove_empty_lines`: removes all empty lines (lines that don't contain anything)
 
+# emit api
+
+`_(...)`
+function can be called multiple times to write to the file multiple times.
+can be useful for loops and conditions.
+please note that emit api is incompatible with return values!
+
+## example:
+```lua
+|>
+  local text = "hello world"
+  for i=1,#text do
+    _ (text:sub(i,i):byte())
+    _ ", "
+  end
+<|
+```
+output: `104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, `
+
 # example
 
 ```
