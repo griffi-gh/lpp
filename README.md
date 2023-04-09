@@ -62,10 +62,41 @@ end
 ```
 
 ## built-in post-processing functions:  
-  - `remove_whitespace`: removes all whitespace
+  - `remove_whitespace`: removes all whitespace (including line breaks)
+  - `convert_crlf`: converts \r\n line endings to \n
+  - `remove_empty_lines`: removes all empty lines (lines that don't contain anything)
+
+# example
+
+```
+|>! postprocess "remove_empty_lines" <|
+
+|>
+  name = "Bob"
+  age = 36
+<|
+
+Hello! My name is |>! name <|, and my age is |>! age <|. 
+I have "|>! -math.huge <|" friends :(.
+
+Some math operations: (age * 36) / 2 = |>! (age * 36) / 2  <|
+
+
+
+
+Today's lucky number is... |>! math.random(100) <|
+
+```
+#### Output:
+```
+Hello! My name is Bob, and my age is 36.
+I have "-inf" friends :(.
+Some math operations: (age * 36) / 2 = 648
+Today's lucky number is... 60
+```
 
 # security  
 none.  
-  
-###### pls don't run untrusted code
+##### (maybe in the future)
+###### *(pls don't run untrusted code)*
 
