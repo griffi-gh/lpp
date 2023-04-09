@@ -1,5 +1,5 @@
 # lpp
-tiny (80 SLOC) lua preprocessor thing for personal use
+tiny (80 SLOC) lua preprocessor thing created for personal use
 
 ## usage  
 ```bash
