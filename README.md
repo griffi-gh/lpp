@@ -69,9 +69,9 @@ end
 # emit api
 
 `_(...)`
-function can be used to write to the file multiple times per block
-can be useful for loops and conditions.
-please note that emit api is incompatible with return values!
+function can be used to write to the file multiple times per block.  
+it can be useful for loops and conditions.  
+please note that emit api is incompatible with return values!  
 
 ## example:
 ```lua
